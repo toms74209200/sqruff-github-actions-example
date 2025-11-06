@@ -8,5 +8,5 @@ INSERT INTO posts (user_id, title, content, published) VALUES
 
 SELECT DISTINCT COUNT(*), user_id
 FROM posts
-WHERE published = NULL
+WHERE published IS NULL
 GROUP BY user_id;
