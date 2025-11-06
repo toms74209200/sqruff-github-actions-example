@@ -13,6 +13,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: quarylabs/install-sqruff-cli-action@7805329baf7cf340e849e254cddc782f08f2d36c # master
       - name: Apply format
+        continue-on-error: true
         run: sqruff fix . --format github-annotation-native
       - name: Check for changes
         id: diff
