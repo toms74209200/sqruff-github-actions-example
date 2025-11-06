@@ -1,0 +1,15 @@
+name: Job - Lint SQL
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: quarylabs/install-sqruff-cli-action@7805329baf7cf340e849e254cddc782f08f2d36c # master
+      - name: Run linter
+        run: sqruff lint . --format github-annotation-native

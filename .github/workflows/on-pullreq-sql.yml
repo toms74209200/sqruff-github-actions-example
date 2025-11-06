@@ -1,0 +1,14 @@
+name: On Pull Request(SQL)
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  format:
+    uses: ./.github/workflows/job-format-sql.yml
+  lint:
+    needs:
+      - format
+    uses: ./.github/workflows/job-lint-sql.yml
